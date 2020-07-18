@@ -10,15 +10,15 @@ const orm = {
     },
     //insert one row
     insertOne:function(table,rowObj, cb){
-        connection.query('INSERT INTO ' + table + 'SET ?',rowObj, (err, result) => {
+        connection.query('INSERT INTO ' + table + ' SET ?;',rowObj, (err, result) => {
             if (err) throw err;
             cb(result);
         })
 
     },
     //update one row
-    updateOne: function (table, updateObj, cb){
-        connection.query('UPDATE '+ table +' SET ?', [updateObj], (err, result) =>{
+    updateOne: function (table, updateObj, id, cb){
+        connection.query('UPDATE '+ table +' SET ? WHERE id= ?;', [updateObj, id], (err, result) =>{
             if (err) throw err;
             cb(result);
         })

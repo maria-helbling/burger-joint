@@ -11,8 +11,8 @@ const burger = {
     add: (burgerObj, cb) => {
         orm.insertOne('burgers',burgerObj, cb);
     },
-    edit: (changeObj, cb) => {
-        orm.updateOne('burgers', changeObj, cb);
+    edit: (changeObj,id, cb) => {
+        orm.updateOne('burgers', changeObj,id,cb);
     }
 }
 
