@@ -11,7 +11,7 @@ $(function(){
         }).then(() => location.reload()
         ).fail(()=>location.reload())
     });
-
+    //form to insert new burger to menu
     $('.create-form').on('submit', event => {
         event.preventDefault();
 
@@ -19,9 +19,11 @@ $(function(){
             burger_name : $('#bn').val().trim()
         }
 
-        $.ajax('/api/new', {
-            type: 'POST',
-            data: newBurger
-        }).then(() => location.reload()).fail(() => location.reload())
+        if ($('#bn').val().trim()) {
+            $.ajax('/api/new', {
+                type: 'POST',
+                data: newBurger
+            }).then(() => location.reload()).fail(() => location.reload())
+        }
     })
 });

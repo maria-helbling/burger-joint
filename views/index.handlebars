@@ -1,46 +1,58 @@
 {{!-- * Setup the `index.handlebars` to have the template that Handlebars can render onto. --}}
 
-     {{!-- * Create a button in `index.handlebars` that will submit the user input into the database. --}}
+{{!-- * Create a button in `index.handlebars` that will submit the user input into the database. --}}
+<div class="row">
+    <div class="col s12 m6">
+        <div class="icon-block">
+            <h2 class="center brown-text"><i class="fas fa-hamburger"></i></h2>
+            <h5 class="center">Today's menu</h5>
+            <ul>
+                {{#each burger}}
+                {{#unless devoured}}
+                <li>
+                    {{id}}. {{burger_name}}
 
-<h1>Ms Maria's Burger Joint</h1>
-<h2>We make any burger you want</h2>
+                    <button class="devour btn-floating btn-large waves-effect waves-light" data-id="{{id}}">
+                        EAT!
+                    </button>
+                </li>
 
-<h3>Today's menu</h3>
+                {{/unless}}
+                {{/each}}
+            </ul>
 
-<ul>
-  {{#each burger}}
-    {{#unless devoured}}
-      <li>
-	{{id}}. {{burger_name}}
 
-	<button class="devour" data-id="{{id}}">
-		EAT ME!
-	</button>
-    </li>
+        </div>
+    </div>
 
-    {{/unless}}
-  {{/each}}
-</ul>
+    <div class="col s12 m6">
+        <div class="icon-block">
+            <h2 class="center brown-text"><i class="fas fa-skull"></i></h2>
+            <h5 class="center">You've already devoured these!</h5>
+            <ul>
+                {{#each burger}}
+                {{#if devoured}}
+                <li>
+                    {{id}}. {{burger_name}}
+                </li>
 
-<h3>You've already devoured these!</h3>
+                {{/if}}
+                {{/each}}
+            </ul>
+        </div>
+    </div>
 
-<ul>
-  {{#each burger}}
-    {{#if devoured}}
-      <li>
-	{{id}}. {{burger_name}}
-</li>
+</div>
+<div class="row">
+    <div class="col s12">
+    <h5>What other burgers do you like?</h5>
+    <form class="create-form">
 
-    {{/if}}
-  {{/each}}
-</ul>
-
-<h3>What other burgers do you like?</h3>
-<form class="create-form">
-
-  <div class="form-group">
-    <label for="burger_name">Burger name:</label>
-    <input type="text" id="bn" name="burger_name">
-  </div>
-  <button type="submit">Add to menu</button>
-</form>
+        <div class="form-group">
+            <label for="burger_name">Burger name:</label>
+            <input type="text" id="bn" name="burger_name">
+        </div>
+        <button class="waves-effect waves-light btn" type="submit">Add to menu</button>
+    </form>
+    </div>
+</div>

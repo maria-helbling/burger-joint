@@ -7,14 +7,12 @@ const router = express.Router();
 //view all 
 router.get('/', (req, res) => {
     burger.view(result => {
-        console.log(result)
         res.render('index', {burger: result})
     })
 });
 
 //add
 router.post('/api/new', (req, res) => {
-    console.log(req.body);
     burger.add(req.body, result => {
         res.json({id: result.insertId})
     });

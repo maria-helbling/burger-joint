@@ -1,3 +1,5 @@
-body {
-    background-color: salmon;
+.parallax-container .parallax img {
+    opacity: 1;
+    max-width: 100%;
+    bottom: auto;
 }
