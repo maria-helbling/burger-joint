@@ -10,11 +10,10 @@
                 {{#each burger}}
                 {{#unless devoured}}
                 <li>
-                    {{id}}. {{burger_name}}
-
                     <button class="devour btn-floating btn-large waves-effect waves-light" data-id="{{id}}">
                         EAT!
                     </button>
+                    {{id}}. {{burger_name}}
                 </li>
 
                 {{/unless}}
